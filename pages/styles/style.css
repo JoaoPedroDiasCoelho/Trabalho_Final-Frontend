@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    background-color: #613797;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+}
+
+.animation{
+    animation-name: navscroll;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.animation-back{
+    animation-name: navback;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+}
+
+@keyframes navscroll {
+    from {
+        height: 120px;
+    }
+    to {
+        height: 90px;
+    }
+}
+
+@keyframes navback {
+    from {
+        height: 90px;
+    }
+    to {
+        height: 120px;
+    }
+}
+
+.nav-items{
+    width: 75%;
+    height: 90%;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-content{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.icons{
+    display: flex;
+    width: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon{
+    height: 30px;
+}
+.links{
+    display: flex;
+    width: 65%;
+    justify-content: space-evenly;
+}
+a{
+    font-size: 1.2rem;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+a:hover{
+    color: #c4c4c4;
+}
+
+.nav-space {
+    height: 120px;
+    background-color: #262626;
+}
+
+.banner {
+    height: 700px;
+    width: 100%;
+    background-image: url('../../assets/banner.jpg');
+    background-size: cover;
+
+
+}
+
+.article-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-img {
+    width: 65%;
+}
+
+.mais-vendidos {
+    width: 100%;
+    margin: 40px 0;
+    min-height: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mais-vendidos-titulo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-arrow {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.carousel-arrow:hover {
+    color: #333;
+}
+
+.carousel-items {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: calc(4 * 250px + 3 * 50px); /* 4 livros + 3 gaps */
+    max-width: 100%;
+}
+.carousel-items::-webkit-scrollbar {
+    display: none;
+}
+
+.livro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+}
+
+.livro img {
+    width: 150px;
+    height: 210px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 2px;
+}
+
+.livro-titulo {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-top: 5px;
+    text-align: center;
+    
+}
+
+.livro-autor {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.livro-preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 2px;
+    text-align: center;
+}
