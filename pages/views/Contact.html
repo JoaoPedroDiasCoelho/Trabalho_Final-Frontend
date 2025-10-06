@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <title>Contact</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav id="nav">
+      <div class="nav-items">
+        <!--Caixa Cinza-->
+        <div class="nav-content">
+          <!-- Logo -->
+          <a href="./index.html">
+            <img
+              src="../../assets/logo.png"
+              class="logo"
+              alt="Logo do site"
+              id="logo"
+            />
+          </a>
+
+          <!-- Links de navegação -->
+          <div class="links">
+            <a href="./About.html">Sobre</a>
+            <a href="./Contact.html">Contato</a>
+            <a href="./Cart.html">Carrinho 🛒</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div style="height: 120px;">
+
+    </div>
+
+    <main class="container">
+      <section class="titulo">
+        <h1>Fale conosco!</h1>
+        <p>Como podemos te ajudar?</p>
+      </section>
+
+      <!-- Formulario -->
+
+      <form class="form">
+        <label for="nome">Nome Completo:</label>
+        <input type="text" placeholder="Digite seu Nome" required />
+
+        <label for="email">Email:</label>
+        <input type="email" placeholder="Digite seu Email" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea
+          type="mensagem"
+          placeholder="Digite sua mensagem"
+          required
+        ></textarea>
+
+        <button class="botao" type="submit">Enviar</button>
+      </form>
+    </main>
+
+    <!-- Rodapé -->>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div style="display: flex; justify-content: space-between; width: 25%;">
+              
+                <img src="../../assets/Facebook.png" class ="footer-icons" alt="">
+                <img src="../../assets/Instagram.png" class ="footer-icons" alt="">
+                <img src="../../assets/WhatsApp.png" class ="footer-icons" alt="">
+            </div>
+            <p style="color: white;">
+                +55 (24) 99999-9999 || Adm@BookStore.com.br
+            </p>
+            <p style="color: white;">
+                © 2025 BookStore
+            </p>
+        </div>
+    </footer>
+
+    <script src="../scripts/script.js"></script>
+  </body>
 </html>
