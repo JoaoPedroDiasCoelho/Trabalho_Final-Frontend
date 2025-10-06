@@ -623,6 +623,70 @@ a:hover{
     background: #222;
     color: #fff;
 }
+
+.nome {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.titulo h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.titulo p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form label {
+  font-weight: bold;
+  color: #333;
+}
+
+.form input, .form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.botao {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
 .footer{
     width: 100%;
     min-height: 150px;
