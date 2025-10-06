@@ -58,18 +58,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const livro = carouselItems.querySelector('.livro');
         if (!carouselItems || !leftArrow || !rightArrow || !livro) return;
 
-        const itemWidth = livro.offsetWidth + 50;
+        const right = livro.offsetWidth + 50;
+        const left = livro.offsetWidth - 50; // 50px é o gap
 
         leftArrow.addEventListener('click', function () {
             carouselItems.scrollBy({
-                left: -itemWidth,
+                left: -left,
                 behavior: 'smooth'
             });
         });
 
         rightArrow.addEventListener('click', function () {
             carouselItems.scrollBy({
-                left: itemWidth,
+                left: right,
                 behavior: 'smooth'
             });
         });
@@ -78,13 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adicionar ao carrinho
     document.querySelectorAll('.add-cart-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            const card = btn.closest('.livro');
+            // O card pode ser .livro ou .professor-card, mas ambos devem ter as classes padronizadas
+            const card = btn.closest('.livro') || btn.closest('.professor-card');
+            if (!card) return;
+
             const livroInfo = {
-                titulo: card.querySelector('.livro-titulo').textContent,
-                autor: card.querySelector('.livro-autor').textContent,
-                preco: card.querySelector('.livro-preco').textContent,
-                imagem: card.querySelector('img').getAttribute('src')
+                titulo: card.querySelector('.livro-titulo')?.textContent || '',
+                autor: card.querySelector('.livro-autor')?.textContent || '',
+                preco: card.querySelector('.livro-preco')?.textContent || '',
+                imagem: card.querySelector('img')?.getAttribute('src') || ''
             };
+
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const jaExiste = cart.some(l => l.titulo === livroInfo.titulo);
             if (jaExiste) {
