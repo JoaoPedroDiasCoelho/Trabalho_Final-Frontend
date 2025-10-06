@@ -21,6 +21,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', checkScroll);
     checkScroll();
+
+    // Banner carrossel
+    const banners = document.querySelectorAll('.banner-img');
+    const leftBanner = document.querySelector('.banner-arrow.left');
+    const rightBanner = document.querySelector('.banner-arrow.right');
+    let bannerIndex = 0;
+
+    function showBanner(idx) {
+        banners.forEach((img, i) => {
+            img.classList.toggle('active', i === idx);
+        });
+    }
+
+    if (banners.length) {
+        showBanner(bannerIndex);
+
+        leftBanner.addEventListener('click', function() {
+            bannerIndex = (bannerIndex - 1 + banners.length) % banners.length;
+            showBanner(bannerIndex);
+        });
+
+        rightBanner.addEventListener('click', function() {
+            bannerIndex = (bannerIndex + 1) % banners.length;
+            showBanner(bannerIndex);
+        });
+    }
 });
 
 // Script para o carrossel de livros
@@ -32,18 +58,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const livro = carouselItems.querySelector('.livro');
         if (!carouselItems || !leftArrow || !rightArrow || !livro) return;
 
-        const itemWidth = livro.offsetWidth + 50;
+        const right = livro.offsetWidth + 50;
+        const left = livro.offsetWidth - 50; // 50px é o gap
 
         leftArrow.addEventListener('click', function () {
             carouselItems.scrollBy({
-                left: -itemWidth,
+                left: -left,
                 behavior: 'smooth'
             });
         });
 
         rightArrow.addEventListener('click', function () {
             carouselItems.scrollBy({
-                left: itemWidth,
+                left: right,
                 behavior: 'smooth'
             });
         });
@@ -52,13 +79,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adicionar ao carrinho
     document.querySelectorAll('.add-cart-btn').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            const card = btn.closest('.livro');
+            // O card pode ser .livro ou .professor-card, mas ambos devem ter as classes padronizadas
+            const card = btn.closest('.livro') || btn.closest('.professor-card');
+            if (!card) return;
+
             const livroInfo = {
-                titulo: card.querySelector('.livro-titulo').textContent,
-                autor: card.querySelector('.livro-autor').textContent,
-                preco: card.querySelector('.livro-preco').textContent,
-                imagem: card.querySelector('img').getAttribute('src')
+                titulo: card.querySelector('.livro-titulo')?.textContent || '',
+                autor: card.querySelector('.livro-autor')?.textContent || '',
+                preco: card.querySelector('.livro-preco')?.textContent || '',
+                imagem: card.querySelector('img')?.getAttribute('src') || ''
             };
+
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const jaExiste = cart.some(l => l.titulo === livroInfo.titulo);
             if (jaExiste) {
@@ -70,4 +101,47 @@ document.addEventListener('DOMContentLoaded', function () {
             alert('Livro adicionado ao carrinho!\n' + livroInfo.titulo + ' - ' + livroInfo.preco + '\nTotal de itens no carrinho: ' + cart.length);
         });
     });
+});
+
+// Carrossel dos cards do Dia do Professor
+document.addEventListener('DOMContentLoaded', function () {
+    const area = document.querySelector('.professor-carousel-area');
+    if (!area) return;
+
+    const carousel = area.querySelector('.professor-carousel');
+    const cards = carousel.querySelectorAll('.professor-card');
+    const leftArrow = area.querySelector('.professor-carousel-arrow.left');
+    const rightArrow = area.querySelector('.professor-carousel-arrow.right');
+    const dots = area.querySelectorAll('.professor-dot');
+    const cardsPerPage = 2; // Quantos cards aparecem por vez
+    let currentPage = 0;
+    const totalPages = Math.ceil(cards.length / cardsPerPage);
+
+    function showPage(page) {
+        cards.forEach((card, i) => {
+            card.style.display = (i >= page * cardsPerPage && i < (page + 1) * cardsPerPage) ? 'flex' : 'none';
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === page);
+        });
+    }
+
+    leftArrow.addEventListener('click', function () {
+        currentPage = (currentPage - 1 + totalPages) % totalPages;
+        showPage(currentPage);
+    });
+
+    rightArrow.addEventListener('click', function () {
+        currentPage = (currentPage + 1) % totalPages;
+        showPage(currentPage);
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', function () {
+            currentPage = i;
+            showPage(currentPage);
+        });
+    });
+
+    showPage(currentPage);
 });

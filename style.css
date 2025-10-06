@@ -1,0 +1,625 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav{
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 40;
+}
+
+.animation{
+    animation-name: navscroll;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.animation-back{
+    animation-name: navback;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+}
+
+@keyframes navscroll {
+    from {
+        height: 120px;
+    }
+    to {
+        height: 90px;
+    }
+}
+
+@keyframes navback {
+    from {
+        height: 90px;
+    }
+    to {
+        height: 120px;
+    }
+}
+
+.nav-items{
+    width: 70%;
+    height: 90%;
+    display: flex;
+    align-items: center; 
+}
+
+.nav-content{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.icons{
+    display: flex;
+    width: 10%;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon{
+    height: 30px;
+}
+.links{
+    display: flex;
+    width: 65%;
+    justify-content: space-evenly;
+}
+a{
+    font-size: 1.2rem;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+a:hover{
+    color: #c4c4c4;
+}
+
+.nav-space {
+    height: 120px;
+    background-color: #262626;
+}
+
+.article-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-img {
+    width: 70%;
+}
+
+.mais-vendidos {
+    width: 100%;
+    margin: 40px 0;
+    min-height: 500px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mais-vendidos-titulo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carousel {
+    width: 80%;
+    max-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-arrow {
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.carousel-arrow:hover {
+    color: #333;
+}
+
+.carousel-items {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 80px 0;
+}
+.carousel-items::-webkit-scrollbar {
+    display: none;
+}
+
+.livro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    transition: transform 0.2s cubic-bezier(.36,.07,.19,.97);
+    z-index: 20;
+}
+
+.livro img {
+    width: 150px;
+    height: 210px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 2px;
+}
+
+.livro-titulo {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    margin-top: 5px;
+    text-align: center;
+    
+}
+
+.livro-autor {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.livro-preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.carousel-items .livro {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 24px 18px 18px 18px;
+    width: 180px;
+    min-height: 420px; /* Garante altura igual para todos os cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.banner-carousel {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #262626;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.banner-images {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1;
+}
+
+.banner-img.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.banner-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4444;
+    color: #fff;
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 3;
+    padding: 0 18px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+.banner-arrow.left { left: 30px; }
+.banner-arrow.right { right: 30px; }
+.banner-arrow:hover { background: #444; }
+
+.professor-section {
+    display: flex;
+    width: 70%;
+    background: #f5f5f5;
+    align-items: center;
+    justify-self: center;
+    border-radius: 24px;
+    min-height: 420px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+.professor-banner {
+    position: relative;
+    width: 60%;
+    min-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}
+
+.professor-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.professor-banner-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 2;
+    text-align: left;
+}
+
+.professor-dia {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffe066;
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.professor-titulo {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ff69b4;
+    line-height: 0.95;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+}
+
+.professor-carousel-area {
+    width: 65%;
+    padding: 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: #131313;
+    border-radius: 0 24px 24px 0;
+}
+
+.professor-carousel {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 600px;
+    min-height: 340px;
+    overflow: hidden;
+}
+
+.professor-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 24px 18px 18px 18px;
+    width: 220px;
+    min-height: 370px; /* Garante altura igual */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.professor-card img {
+    width: 120px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.professor-card-titulo,
+.professor-card-autor,
+.professor-card-preco {
+    width: 100%;
+    text-align: left;
+}
+
+.add-cart-btn {
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto; /* Mantém o botão na base */
+    transition: background 0.2s;
+}
+
+.pixel {
+  line-height: 0;
+  
+  image-rendering: optimizeSpeed;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+  
+  border-style: solid;
+  border-width: 20px;
+  -moz-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -webkit-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  -o-border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+  border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch;
+}
+.professor-add-btn:hover,
+.add-cart-btn:hover {
+    background: #222;
+}
+.professor-add-icon {
+    font-size: 1.2rem;
+}
+
+.professor-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    color: #222;
+    border: none;
+    font-size: 2.2rem;
+    cursor: pointer;
+    z-index: 2;
+    padding: 0 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: background 0.2s;
+}
+.professor-carousel-arrow.left { left: 10px; }
+.professor-carousel-arrow.right { right: 10px; }
+.professor-carousel-arrow:hover { background: #0e0e0e; color: #fff;}
+
+.professor-pagination {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+}
+.professor-dot {
+    width: 12px;
+    height: 12px;
+    background: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background 0.2s;
+}
+.professor-dot.active {
+    background: #444;
+}
+
+.newsletter-box {
+    width: 70%;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: center;
+    padding: 32px 40px;
+    gap: 32px;
+}
+
+.newsletter-icon {
+    width: 90px;
+    height: 90px;
+    background: #222;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.newsletter-content {
+    flex: 1;
+    min-width: 220px;
+}
+
+.newsletter-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.newsletter-desc {
+    font-size: 1.05rem;
+    color: #444;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 2;
+    flex-wrap: wrap;
+}
+
+.newsletter-input {
+    background: #0000;
+    border: 2px solid #222;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-width: 180px;
+    outline: none;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    color: #222;
+}
+
+.newsletter-input.email {
+    border: 2px solid #222;
+    background: #fff;
+}
+
+.newsletter-input.select {
+    min-width: 180px;
+    font-weight: 600;
+}
+
+.newsletter-btn {
+    background: #202020;
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 12px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.newsletter-btn:hover {
+    background: #ffffff9c;
+    color: #000;
+    border: 2px solid #000;
+    transform: scale(1.05);
+}
+
+.newsletter-termos {
+    width: 100%;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.newsletter-termos a {
+    color: #00e676;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.sobre-box {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    background: #fff;
+    border-radius: 24px;
+    /* box-shadow: 0 2px 24px rgba(0,0,0,0.07); */
+    padding: 40px 48px;
+    width: 70%;
+    margin: 48px auto;
+}
+
+.sobre-img {
+    height: 500px;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+.sobre-content {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.sobre-titulo {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sobre-texto {
+    font-size: 1.08rem;
+    color: #222;
+    margin-bottom: 21px;
+    line-height: 1.2;
+}
+
+.sobre-btn {
+    background: #fff;
+    color: #111;
+    border: 2px solid #222;
+    border-radius: 999px;
+    padding: 12px 36px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.sobre-btn:hover {
+    background: #222;
+    color: #fff;
+}
