@@ -623,3 +623,24 @@ a:hover{
     background: #222;
     color: #fff;
 }
+.footer{
+    width: 100%;
+    min-height: 150px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-content{
+    width: 40%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0px;
+    margin: 20px 0px;
+}
+.footer-icons{
+    height: 30px;
+}
