@@ -1,11 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Produto - Dexter</title>
+    <link rel="stylesheet" href="../styles/product.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <meta name="description" content="Página de detalhes do livro 'Dexter: A Mão Esquerda de Deus' de Jeff Lindsay. Compre agora na BookStore!">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
 </head>
+
 <body>
-    
-</body>
+    <div class="conteiner">
+         <!-- Navbar -->
+  <nav id="nav">
+        <div class="nav-items"> <!--Caixa Cinza-->
+            <div class="nav-content">
+                <!-- Logo -->
+                <a href="/index.html">
+                    <img src="/assets/logo.png" class="logo" alt="Logo do site" id="logo">
+                </a>
+
+                <!-- Links de navegação -->
+                <div class="links">
+                    <a href="/pages/views/About.html">Sobre</a>
+                    <a href="/pages/views/Contact.html">Contato</a>
+                    <a href="/pages/views/Cart.html">Carrinho  🛒</a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Preencher o espaco da nav fixed -->
+    <div class="nav-space"></div>
+
+
+        <section class="meio">
+            <div class="livroicon">
+                <img src="../../assets/dexter.jpg" alt="Capa do livro Dexter">
+            </div>
+
+            <div class="infos">
+                <div class="desc">
+                    <h2 style="text-align: center;">Dexter: A Mão Esquerda de Deus</h2>
+                    <h3 style="text-align: center;">Autor: Jeff Lindsay</h3>
+                </div>
+                <div class="preco">
+                    <h2>R$ 59,90</h2>
+                    <div class="comprar">
+                        <label for="quantidade">Quantidade:</label>
+                        <div class="quantidaderow" style="display: flex; align-items: center; gap: 10px;">
+                            <button class="add-cart-btn" style="border-radius: 10px; background-color: black; padding: 15px 15px; margin-top: 10px;">ADICIONAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="descricaoinfo">
+            <div class="boxinfo">
+                <div class="infoitem">
+                    <h3>🏢</h3>
+                    <p class="infotitulo">Editora</p>
+                    <p class="infovalor">Planeta do Brasil</p>
+                </div>
+                <div class="infoitem">
+                    <h3>🔢</h3>
+                    <p class="infotitulo">ISBN</p>
+                    <p class="infovalor">9788542238761</p>
+                </div>
+                <div class="infoitem">
+                    <h3>📖</h3>
+                    <p class="infotitulo">Páginas</p>
+                    <p class="infovalor">256</p>
+                </div>
+                <div class="infoitem">
+                    <h3>🌐</h3>
+                    <p class="infotitulo">Idioma</p>
+                    <p class="infovalor">Português</p>
+                </div>
+                <div class="infoitem">
+                    <h3>⚖️</h3>
+                    <p class="infotitulo">Peso</p>
+                    <p class="infovalor">415 g</p>
+                </div>
+                <div class="infoitem">
+                    <h3>📓</h3>
+                    <p class="infotitulo">Acabamento</p>
+                    <p class="infovalor">Brochura</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sinopse">
+            <div class="sim">
+                <h2>Sinopse</h2>
+                <p>Dexter Morgan é um especialista forense da polícia de Miami. Inteligente, sarcástico e com uma vida aparentemente normal, ele esconde um segredo sombrio: é um serial killer que segue um código rígido, apenas eliminando outros assassinos. Neste primeiro livro da série, Dexter precisa lidar com seus próprios impulsos e com um caso que imita sua maneira de matar, desafiando sua mente e colocando em risco sua identidade.</p>
+            </div>
+        </section>
+
+        <section class="autor">
+            <div class="sobreautor">
+                <h2>Sobre o Autor</h2>
+                <p>Jeff Lindsay é um escritor norte-americano conhecido mundialmente pela criação do personagem Dexter Morgan. Seu estilo mistura suspense, humor ácido e tramas psicológicas envolventes. Além da saga Dexter, também escreveu outros romances e peças de teatro, consolidando-se como um dos autores de thrillers mais originais da atualidade.</p>
+            </div>
+        </section>
+
+        <section class="fichatecninca">
+            <div class="tecnica">
+                <h2>Ficha Técnica</h2>
+                <div class="colunatecnica">
+                    <p>Código Interno</p>
+                    <p>1157852</p>
+                </div>
+                <div class="colunatecnica2">
+                    <p>Edição</p>
+                    <p>1ª</p>
+                </div>
+                <div class="colunatecnica">
+                    <p>Ano de Publicação</p>
+                    <p>2015</p>
+                </div>
+                <div class="colunatecnica2">
+                    <p>Formato</p>
+                    <p>16 x 23 cm</p>
+                </div>
+                <div class="colunatecnica">
+                    <p>Categoria</p>
+                    <p>Suspense / Thriller</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+        <div class="footer-content">
+            <div style="display: flex; justify-content: space-between; width: 25%;">
+
+                <img src="../../assets/Facebook.png" class ="footer-icons" alt="">
+                <img src="../../assets/Instagram.png" class ="footer-icons" alt="">
+                <img src="../../assets/WhatsApp.png" class ="footer-icons" alt="">
+            </div>
+            <p style="color: white;">
+                +55 (24) 99999-9999 || Adm@BookStore.com.br
+            </p>
+            <p style="color: white;">
+                © 2025 BookStore
+            </p>
+        </div>
+    </footer>
+
+    </div>
+    <script src="../scripts/script.js"></script>
+    </body>
 </html>

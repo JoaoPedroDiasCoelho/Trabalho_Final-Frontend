@@ -2,99 +2,66 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
-    <link rel="stylesheet" href="../pages/styles/style.css">
-    <script src="./pages/scripts/script.js" defer></script>
-    <style>
-        #cart-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .livro {
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            padding: 20px;
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .livro img {
-            width: 120px;
-            height: 170px;
-            object-fit: cover;
-            margin-bottom: 10px;
-            border-radius: 4px;
-        }
-
-        .livro-titulo {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-            text-align: center;
-        }
-
-        .livro-autor {
-            font-size: 1rem;
-            color: #613797;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .livro-preco {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-top: 2px;
-            text-align: center;
-            color: #262626;
-        }
-
-        .remove-cart-btn {
-            margin-top: 12px;
-            padding: 6px 16px;
-            background: #613797;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.95rem;
-            transition: background 0.2s;
-        }
-        .remove-cart-btn:hover {
-            background: #45206b;
-        }
-    </style>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cartstyle.css">
+    <script src="../scripts/script.js" defer></script> 
+    <script src="../scripts/test.js" defer></script> 
+    <link rel="shortcut" href="/assets/logo.png" type="image/x-icon">
 </head>
 <body>
-     <!-- Navbar -->
     <nav id="nav">
-        <div class="nav-items"> <!--Caixa Cinza-->
+        <div class="nav-items">
             <div class="nav-content">
-                <a href="./index.html">
-                    <img src="./assets/logo.png" class="logo" alt="Logo do site" id="logo">
+                <a href="/index.html">
+                    <img src="/assets/logo.png" class="logo" alt="Logo do site" id="logo">
                 </a>
-
-                <!-- Links de navegação -->
                 <div class="links">
-                    <a href="#sites">Sites</a>
-                    <a href="#sobre">Sobre</a>
-                    <a href="./pages/views/Cart.html">Carrinho</a>
+                    <a href="/pages/views/About.html">Sobre</a>
+                    <a href="/pages/views/Contact.html">Contato</a>
+                    <a href="/pages/views/Cart.html">Carrinho 🛒</a>
                 </div>
-
             </div>
         </div>
     </nav>
 
-    <!-- Preencher o espaco da nav fixed -->
     <div class="nav-space"></div>
+    
+    <section class="container">
+        <h2 class="header" style=" text-align: center; font-size: 34px; margin-bottom: 25px;">CARRINHO</h2>
+        
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">LIVRO</span>
+            <span class="cart-price cart-header cart-column">PREÇO</span>
+            <span class="cart-quantity cart-header cart-column">QUANTIDADE</span>
+        </div>
+        
+        <div class="cart-items" id="cart-items-container">
+            </div>
+        
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price" id="total-price">R$ 0,00</span>
+        </div>
+        
+        <button class="btn btn-primary btn-purchase" type="button">COMPRAR</button>
+    </section>
 
-    <h2 style="text-align: center; font-size: 2rem; margin-top: 100px;">Seu Carrinho.</h2>
-    <div id="cart-container"></div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div style="display: flex; justify-content: space-between; width: 25%;">
+                <img src="../../assets/Facebook.png" class ="footer-icons" alt="Facebook">
+                <img src="../../assets/Instagram.png" class ="footer-icons" alt="Instagram">
+                <img src="../../assets/WhatsApp.png" class ="footer-icons" alt="WhatsApp">
+            </div>
+            <p style="color: white;">
+                +55 (24) 99999-9999 || Adm@BookStore.com.br
+            </p>
+            <p style="color: white;">
+                © 2025 BookStore
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
