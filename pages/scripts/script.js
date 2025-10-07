@@ -1,11 +1,12 @@
-// Script para animações do navbar
 document.addEventListener('DOMContentLoaded', function() {
     const nav = document.getElementById('nav');
     const logo = document.getElementById('logo');
 
+    // Lógica do Scroll da Navegação
     function checkScroll() {
+        if (!nav || !logo) return;
         const scrollPosition = window.scrollY;
-
+        
         if (scrollPosition > 150) {
             nav.classList.add('animation');
             nav.classList.remove('animation-back');
@@ -18,11 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
             logo.style.height = '100px';
         }
     }
-
     window.addEventListener('scroll', checkScroll);
     checkScroll();
 
-    // Banner carrossel
+    // Lógica do Banner (se houver)
     const banners = document.querySelectorAll('.banner-img');
     const leftBanner = document.querySelector('.banner-arrow.left');
     const rightBanner = document.querySelector('.banner-arrow.right');
@@ -34,76 +34,63 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (banners.length) {
+    if (banners.length && leftBanner && rightBanner) {
         showBanner(bannerIndex);
-
         leftBanner.addEventListener('click', function() {
             bannerIndex = (bannerIndex - 1 + banners.length) % banners.length;
             showBanner(bannerIndex);
         });
-
         rightBanner.addEventListener('click', function() {
             bannerIndex = (bannerIndex + 1) % banners.length;
             showBanner(bannerIndex);
         });
     }
-});
-
-// Script para o carrossel de livros
-document.addEventListener('DOMContentLoaded', function () {
+    
+    // Lógica do Carrossel de Livros
     document.querySelectorAll('.carousel').forEach(function(carousel) {
         const carouselItems = carousel.querySelector('.carousel-items');
         const leftArrow = carousel.querySelector('.carousel-arrow.left');
         const rightArrow = carousel.querySelector('.carousel-arrow.right');
         const livro = carouselItems.querySelector('.livro');
+        
         if (!carouselItems || !leftArrow || !rightArrow || !livro) return;
-
-        const right = livro.offsetWidth + 50;
-        const left = livro.offsetWidth - 50; // 50px é o gap
-
-        leftArrow.addEventListener('click', function () {
-            carouselItems.scrollBy({
-                left: -left,
-                behavior: 'smooth'
-            });
-        });
-
-        rightArrow.addEventListener('click', function () {
-            carouselItems.scrollBy({
-                left: right,
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Adicionar ao carrinho
-    document.querySelectorAll('.add-cart-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            // O card pode ser .livro ou .professor-card, mas ambos devem ter as classes padronizadas
-            const card = btn.closest('.livro') || btn.closest('.professor-card');
-            if (!card) return;
-
-            const livroInfo = {
-                titulo: card.querySelector('.livro-titulo')?.textContent || '',
-                autor: card.querySelector('.livro-autor')?.textContent || '',
-                preco: card.querySelector('.livro-preco')?.textContent || '',
-                imagem: card.querySelector('img')?.getAttribute('src') || ''
-            };
-
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const jaExiste = cart.some(l => l.titulo === livroInfo.titulo);
-            if (jaExiste) {
-                alert('Este livro já está no carrinho!');
-                return;
-            }
-            cart.push(livroInfo);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert('Livro adicionado ao carrinho!\n' + livroInfo.titulo + ' - ' + livroInfo.preco + '\nTotal de itens no carrinho: ' + cart.length);
-        });
+        
+        const scrollAmount = livro.offsetWidth + 20;
+        leftArrow.addEventListener('click', () => carouselItems.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+        rightArrow.addEventListener('click', () => carouselItems.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
     });
 });
 
-// Carrossel dos cards do Dia do Professor
+// Lógica de Adicionar ao Carrinho (Geralmente em pages como index.html)
+document.querySelectorAll('.add-cart-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        const card = btn.closest('.livro') || btn.closest('.professor-card');
+        if (!card) return;
+
+        const livroInfo = {
+            id: card.querySelector('.livro-titulo')?.textContent.trim() || '',
+            titulo: card.querySelector('.livro-titulo')?.textContent.trim() || '',
+            autor: card.querySelector('.livro-autor')?.textContent || '',
+            preco: card.querySelector('.livro-preco')?.textContent || '',
+            imagem: card.querySelector('img')?.getAttribute('src') || ''
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const itemExistente = cart.find(item => item.id === livroInfo.id);
+
+        if (itemExistente) {
+            itemExistente.quantity++;
+            alert('Quantidade atualizada no carrinho!');
+        } else {
+            livroInfo.quantity = 1;
+            cart.push(livroInfo);
+            alert('Livro adicionado ao carrinho!');
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     const area = document.querySelector('.professor-carousel-area');
     if (!area) return;

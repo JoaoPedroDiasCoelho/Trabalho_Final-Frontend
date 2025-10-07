@@ -56,12 +56,12 @@ header nav a:hover {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     background-color: #ffffff;
     width: 20rem;
-    margin-top: 10rem;
     padding: 1rem;
     gap: 1rem;
-    height: auto;
+    height: 350px;
     margin-bottom: 10px;
 }
 
@@ -69,16 +69,18 @@ header nav a:hover {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    height: 45%;
+    justify-content: space-evenly;
 }
 
 .preco {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: black; 
     padding: 0.5rem;
     border-radius: 20px;
-    color: white;
+    color: black;
 }
 
 .preco h2 {
@@ -101,6 +103,7 @@ header nav a:hover {
 
 .comprar {
     display: flex;
+    width: 80%;
     flex-direction: column;
     gap: 0.25rem;
     align-items: center;

@@ -7,29 +7,32 @@
     <title>Produto - Dexter</title>
     <link rel="stylesheet" href="../styles/product.css">
     <link rel="stylesheet" href="../styles/style.css">
+    <meta name="description" content="Página de detalhes do livro 'Dexter: A Mão Esquerda de Deus' de Jeff Lindsay. Compre agora na BookStore!">
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
 </head>
 
 <body>
     <div class="conteiner">
          <!-- Navbar -->
-    <nav id="nav">
+  <nav id="nav">
         <div class="nav-items"> <!--Caixa Cinza-->
             <div class="nav-content">
                 <!-- Logo -->
-                <a href="./index.html">
-                    <img src="../../assets/logo.png" class="logo" alt="Logo do site" id="logo">
+                <a href="/index.html">
+                    <img src="/assets/logo.png" class="logo" alt="Logo do site" id="logo">
                 </a>
 
                 <!-- Links de navegação -->
                 <div class="links">
-                    <a href="./pages/views/About.html">Sobre</a>
-                    <a href="./pages/views/Contact.html">Contato</a>
-                    <a href="./Cart.html">Carrinho  🛒</a>
+                    <a href="/pages/views/About.html">Sobre</a>
+                    <a href="/pages/views/Contact.html">Contato</a>
+                    <a href="/pages/views/Cart.html">Carrinho  🛒</a>
                 </div>
 
             </div>
         </div>
     </nav>
+
 
     <!-- Preencher o espaco da nav fixed -->
     <div class="nav-space"></div>
@@ -42,16 +45,15 @@
 
             <div class="infos">
                 <div class="desc">
-                    <h2>Dexter: A Mão Esquerda de Deus</h2>
-                    <h3>Autor: Jeff Lindsay</h3>
+                    <h2 style="text-align: center;">Dexter: A Mão Esquerda de Deus</h2>
+                    <h3 style="text-align: center;">Autor: Jeff Lindsay</h3>
                 </div>
                 <div class="preco">
                     <h2>R$ 59,90</h2>
                     <div class="comprar">
                         <label for="quantidade">Quantidade:</label>
-                        <div class="quantidaderow">
-                            <input type="number" id="quantidade" name="quantidade" min="1" value="1">
-                            <button class="btn-carrinho">🛒 Adicionar</button>
+                        <div class="quantidaderow" style="display: flex; align-items: center; gap: 10px;">
+                            <button class="add-cart-btn" style="border-radius: 10px; background-color: black; padding: 15px 15px; margin-top: 10px;">ADICIONAR</button>
                         </div>
                     </div>
                 </div>
